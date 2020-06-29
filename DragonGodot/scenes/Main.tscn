@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/Dragon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Terrain.tscn" type="PackedScene" id=2]
 
 [node name="Main" type="Spatial"]
 
 [node name="Dragon" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.883087, -0.0610981, 0.465214, -4.24293e-08, 0.991486, 0.130215, -0.469209, 0.114991, -0.875568, 47.0418, 82.5685, -73.4391 )
-fov = 60.2
-far = 1751.2
+[node name="Camera" type="Camera" parent="Dragon"]
+transform = Transform( -20, 0, -6.51683e-06, 0, 20, 0, 6.51683e-06, 0, -20, 0.442352, 102.004, -186.444 )
+fov = 38.5
+far = 135.8
+
+[node name="Terrain" parent="." instance=ExtResource( 2 )]
