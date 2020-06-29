@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://imports/FlyingGLB/Dragon_2.5_For_Animations_VECCHI - Flying.gltf" type="PackedScene" id=1]
 [ext_resource path="res://imports/Game_dragon.material" type="Material" id=2]
@@ -8,8 +8,41 @@
 [ext_resource path="res://animations/fire.anim" type="Animation" id=6]
 [ext_resource path="res://animations/flying.anim" type="Animation" id=7]
 [ext_resource path="res://animations/fast-flying.anim" type="Animation" id=8]
+[ext_resource path="res://scripts/Dragon.gd" type="Script" id=9]
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "fast-flying"
+
+[sub_resource type="AnimationNodeOneShot" id=1]
+filter_enabled = true
+filters = [ "a/Skeleton:act_neck_1", "a/Skeleton:act_neck_2", "a/Skeleton:act_neck_3", "a/Skeleton:act_neck_4", "a/Skeleton:act_neck_skin", "a/Skeleton:auge_lens_l", "a/Skeleton:auge_lens_r", "a/Skeleton:augen_control", "a/Skeleton:augenbraue_l", "a/Skeleton:augenbraue_r", "a/Skeleton:augenlid_oben_l", "a/Skeleton:augenlid_oben_r", "a/Skeleton:augenlid_unten_l", "a/Skeleton:augenlid_unten_r", "a/Skeleton:bone", "a/Skeleton:bone_3", "a/Skeleton:bone_4", "a/Skeleton:breast", "a/Skeleton:cheek_muscle_l", "a/Skeleton:cheek_muscle_r", "a/Skeleton:cont_tail_1", "a/Skeleton:cont_tail_2", "a/Skeleton:cont_tongue", "a/Skeleton:hand_l", "a/Skeleton:hand_r", "a/Skeleton:head", "a/Skeleton:ik_auge_l", "a/Skeleton:ik_auge_r", "a/Skeleton:ik_head", "a/Skeleton:ik_target_auge_l", "a/Skeleton:ik_target_auge_r", "a/Skeleton:ik_tongue", "a/Skeleton:lips_cont", "a/Skeleton:lower_lip", "a/Skeleton:mouth_cont", "a/Skeleton:nase_l", "a/Skeleton:nase_r", "a/Skeleton:paunch", "a/Skeleton:pelvic_1", "a/Skeleton:pelvic_2", "a/Skeleton:tongue_1", "a/Skeleton:tongue_2", "a/Skeleton:upper_lip" ]
+fadeout_time = 1.2
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "flying"
+
+[sub_resource type="AnimationNodeBlend2" id=6]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "fire"
+
+[sub_resource type="AnimationNodeBlendTree" id=4]
+graph_offset = Vector2( -693.09, -192.095 )
+nodes/FastFlying/node = SubResource( 5 )
+nodes/FastFlying/position = Vector2( 200, 200 )
+nodes/Fire/node = SubResource( 1 )
+nodes/Fire/position = Vector2( 1000, 240 )
+nodes/Flying/node = SubResource( 3 )
+nodes/Flying/position = Vector2( 200, 60 )
+nodes/SpeedUp/node = SubResource( 6 )
+nodes/SpeedUp/position = Vector2( 460, -120 )
+nodes/SpitFire/node = SubResource( 2 )
+nodes/SpitFire/position = Vector2( 460, 380 )
+nodes/output/position = Vector2( 1900, 260 )
+node_connections = [ "output", 0, "Fire", "Fire", 0, "SpeedUp", "Fire", 1, "SpitFire", "SpeedUp", 0, "Flying", "SpeedUp", 1, "FastFlying" ]
 
 [node name="Dragon_25_For_Animations_VECCHI - Flying" instance=ExtResource( 1 )]
+script = ExtResource( 9 )
 
 [node name="Cube" parent="a/Skeleton" index="0"]
 material/0 = ExtResource( 2 )
@@ -22,3 +55,10 @@ anims/fast-flying = ExtResource( 8 )
 anims/fire = ExtResource( 6 )
 anims/flying = ExtResource( 7 )
 anims/takeoff = ExtResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource( 4 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Fire/active = false
+parameters/SpeedUp/blend_amount = 0.0
