@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/castle wall spec.png-f3e07dfb26e3b71b57fc127f46df59ca.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Models/Tower2/castle wall spec.png"
+dest_files=[ "res://.import/castle wall spec.png-f3e07dfb26e3b71b57fc127f46df59ca.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

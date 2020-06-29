@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Only Tower.obj-4330cd3ae8ebf648d0db214a90ddb3c0.mesh"
+
+[deps]
+
+files=[ "res://.import/Only Tower.obj-4330cd3ae8ebf648d0db214a90ddb3c0.mesh" ]
+
+source_file="res://Models/Tower/Tower 6frt AlexFreeStockVideo/Only Tower.obj"
+dest_files=[ "res://.import/Only Tower.obj-4330cd3ae8ebf648d0db214a90ddb3c0.mesh", "res://.import/Only Tower.obj-4330cd3ae8ebf648d0db214a90ddb3c0.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
