@@ -44,5 +44,9 @@ func _process(delta):
 	# Shot the fire animation
 	if Input.is_action_pressed("spit_fire"):
 		animator['parameters/Fire/active'] = true
+		$a/Skeleton/Fire/Flames.emitting = true
 	else :
-		animator['parameters/Fire/active'] = false		
+		animator['parameters/Fire/active'] = false
+		$a/Skeleton/Fire/Flames.emitting = false
+		
+	

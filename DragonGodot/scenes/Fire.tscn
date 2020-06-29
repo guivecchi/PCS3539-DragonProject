@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://particles/fire.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 0.863281, 0.591925, 0.16861, 1, 0.691406, 0.0702209, 0.0702209, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+max_value = 401.0
+_data = [ Vector2( 0.00590551, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.746063, 0.598113 ), 1.55367, 1.55367, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0.0167323, 0.145455 ), 0.0, 1.83504, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+trail_size_modifier = SubResource( 13 )
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = -72.3
+angular_velocity_random = 0.97
+linear_accel = 75.38
+linear_accel_random = 0.13
+angle = 360.0
+angle_random = 0.09
+scale = 125.67
+scale_random = 0.16
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="QuadMesh" id=15]
+
+[node name="Particles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 0.374387, 0.927273, 0, -0.927273, 0.374387, 0, 61.6616, 27.1225 )
+material_override = SubResource( 7 )
+amount = 100
+lifetime = 2.48
+speed_scale = 7.18
+randomness = 0.74
+fixed_fps = 344
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 15 )
