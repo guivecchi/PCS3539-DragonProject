@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 window/size/width=2048
 window/size/height=1200
+window/low_processor_mode=false
 
 [input]
 
