@@ -6,7 +6,7 @@
 [node name="Main" type="Spatial"]
 
 [node name="Dragon" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.55695, 0 )
 
 [node name="Camera" type="Camera" parent="Dragon"]
 transform = Transform( -20, 0, -6.51683e-06, 0, 20, 0, 6.51683e-06, 0, -20, 0.442352, 102.004, -186.444 )
