@@ -55,6 +55,9 @@ onready var flames = get_node("a/Skeleton/Fire/Flames")
 onready var aim = get_node("a/Skeleton/Fire/Aim")
 
 func _ready():
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	# Gets skeleton and neck bones
 	skel = get_node("a/Skeleton")
 	head = skel.find_bone("head")
